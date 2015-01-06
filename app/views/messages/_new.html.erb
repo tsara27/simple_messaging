@@ -1,0 +1,9 @@
+<h3>Add New Message</h3>
+<%= form_for @message do |m| %>
+  <%= m.text_field :name, placeholder: "Name" %>
+  <br>
+  <br>
+  <%= m.text_area :text, placeholder: "Your message here" %>
+  <br>
+  <%= m.submit "Send" %>
+<% end %>
