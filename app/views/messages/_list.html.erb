@@ -1,5 +1,9 @@
 <h3>This site has <%= "#{@messages.count} #{@messages.count > 1 ? 'message'.pluralize : 'message'}." %></h3>
 <% @messages.each do |message| %>
+  <blockquote>
+    <p><%= message.parent.try(:name) %></p>
+    <p><%= message.parent.try(:text) %></p>
+  </blockquote>
   <p><%= message.name %></p>
   <p><%= message.text %></p>
   <p><%= link_to "Reply", reply_message_path(message) %></p>
