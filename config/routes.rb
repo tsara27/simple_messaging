@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :messages do
-    get :reply, on: :member
+    member do
+      get :reply
+      post :send_reply
+    end
   end
   # You can have the root of your site routed with "root"
   root 'messages#index'

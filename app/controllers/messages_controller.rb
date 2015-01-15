@@ -10,11 +10,11 @@ class  MessagesController < ApplicationController
 
   def reply
     @parent = Message.find(params[:id])
-    @message = Message.new(message_params)
   end
 
   def send_reply
-    
+    @reply_message = Message.find(params[:id]).children.create message_params
+    redirect_to root_path if @reply_message.persisted?
   end
 
   private
