@@ -1,0 +1,3 @@
+<% if @message.persisted? %>
+  $(".messages-list").html('<%=j render "list" %>')
+<% end %>
