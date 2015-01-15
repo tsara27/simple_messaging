@@ -1,0 +1,8 @@
+<%= form_for @message, remote: true do |m| %>
+  <%= m.text_field :name, placeholder: "Name" %>
+  <br>
+  <br>
+  <%= m.text_area :text, placeholder: "Your message here" %>
+  <br>
+  <%= m.submit "Send" %>
+<% end %>
