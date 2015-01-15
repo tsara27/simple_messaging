@@ -1,11 +1,20 @@
 class  MessagesController < ApplicationController
-  respond_to :html, :js
+  respond_to :html, :js, only: [:create]
   before_action :load_messages
   before_action :new_message
 
   def create
     @message = Message.new(message_params)
     @message.save
+  end
+
+  def reply
+    @parent = Message.find(params[:id])
+    @message = Message.new(message_params)
+  end
+
+  def send_reply
+    
   end
 
   private
